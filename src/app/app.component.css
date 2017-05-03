@@ -1,12 +1,12 @@
 .wrapper{
-    background: url('./background.jpg') no-repeat;
+    background: url('../assets/background.jpg') no-repeat;
     background-size: cover;
     overflow: hidden;
 }
 
 @font-face{
   font-family: "Custom Font";
-  src: url('./ComicNeue-Angular-Bold.ttf');
+  src: url('../assets/ComicNeue-Angular-Bold.ttf');
 }
 
 .logo{
