@@ -11,6 +11,11 @@
         <p><a href="#">back to search</a></p>
     </div>
 
+<!-- click on album -->
+    <div *ngIf="!searchable" class="instruction">
+        <p>Click on the album to learn more!</p>
+    </div>
+
 <!-- search bar -->
     <div *ngIf="searchable" class="text-center search">
           <h3>Search for your favorite music and have fun!</h3>
