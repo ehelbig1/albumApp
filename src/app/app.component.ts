@@ -45,6 +45,7 @@ export class AppComponent {
         
         this.margin = 0;
 
+// Initial request for album covers
         this.bindAlbums = function(keyword: string){
 
             this.searchable = false;
@@ -65,6 +66,7 @@ export class AppComponent {
             })
         }
 
+// request for additional album info
         this.getInfo = function(i: string){
                 this.ajaxService.getAlbums(this.ids[i]).subscribe((response: {}) => {
                     this.response = response;
@@ -97,6 +99,7 @@ export class AppComponent {
                 })
         }
 
+// slider functions
         this.slideLeft = function(){
             this.margin -= this.albumFrame * .973;
             this.farLeft = true;
@@ -117,6 +120,7 @@ export class AppComponent {
             }
         }
 
+// start new search
         this.newSearch = function(){
             this.searchable = true;
             this.albumInfo = false;
@@ -127,7 +131,8 @@ export class AppComponent {
             this.ids = [];
             
         }
-        
+
+// close modal       
         this.closeModal = function(){
             this.albumInfo = false;
             this.moreInfo = {};

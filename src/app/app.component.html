@@ -1,63 +1,69 @@
 <div class="wrapper" [ngStyle]="{'height': imgSize * 2 + 'px'}">
   <div class="container">
-      <div class="logo" >
-          <h3>we sorta like music</h3>
-      </div> 
-      <div class="newSearch" (click)="newSearch()">
-          <p><a href="#">back to search</a></p>
-      </div>
-      <div *ngIf="searchable" class="text-center search">
+
+<!-- sorta like music -->
+    <div class="logo" >
+        <h3>we sorta like music</h3>
+    </div> 
+
+<!-- back to search -->
+    <div class="newSearch" (click)="newSearch()">
+        <p><a href="#">back to search</a></p>
+    </div>
+
+<!-- search bar -->
+    <div *ngIf="searchable" class="text-center search">
           <h3>Search for your favorite music and have fun!</h3>
           <p>Enter an artist below and click search to discover great information about your favorite music.</p>
           <br />
           <br />
-          <div class="searchBar">
-              <form class="input-group add-on" (submit)="bindAlbums(keyword)">
-                  <input class="searchInput" autofocus class="form-control" type="text" name="keyword" placeholder="Ex. nickleback, odesza, kid rock" [(ngModel)]="keyword" />
-                  <div class="input-group-btn">
-                      <button class="btn btn-success">Search</button>
-                  </div>
-              </form>
+      <div class="searchBar">
+        <form class="input-group add-on" (submit)="bindAlbums(keyword)">
+        <input class="searchInput" autofocus class="form-control" type="text" name="keyword" placeholder="Ex. nickleback, odesza, kid rock" [(ngModel)]="keyword" />
+          <div class="input-group-btn">
+              <button class="btn btn-success">Search</button>
           </div>
+        </form>
       </div>
-      <div id="albums" class="container text-center" *ngIf="!searchable" [ngStyle]="{'margin-left': margin + 'px', 'height': imgSize + 'px', 'width': containerWidth + 'px'}">
+    </div>
 
-                  <div class="album-container" *ngFor="let album of albums; let i = index">
-                      <div class="album" (click)='getInfo(i)' [ngStyle]="{'background': 'url(' + album + ')', 'background-size': 'cover', 'height': imgSize + 'px', 'width': imgSize + 'px'}">
-  <!--                        <div class="info text-center">
-                              <p *ngIf='albumInfo'>{{album.name}}</p>
-                              <p *ngIf='albumInfo'>{{album.artist}}</p>
-                              <div *ngFor="let track of tracks">
-                                  <p *ngIf='albumInfo'>{{track.track}}</p>
-                              </div>
-                        </div>
-  -->                   </div>
-                  </div>
-              </div>
+<!-- album container -->
+    <div id="albums" class="container text-center" *ngIf="!searchable" [ngStyle]="{'margin-left': margin + 'px', 'height': imgSize + 'px', 'width': containerWidth + 'px'}">
 
-      <div (click)="closeModal()" *ngIf="albumInfo && !searchable" class="row info-modal" [ngStyle]="{'height': (albumFrame * 1.5) + 'px'}">
-          <div class="close-modal">X</div>
-          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xm-6">
-              <img src="{{moreInfo.albumArt}}">
-          </div>
-          <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-xm-6">
-              <h1>{{moreInfo.name}}</h1>
-              <a target="_blank" href="{{moreInfo.link}}">-view in spotify</a>
-              <h4>Release: {{moreInfo.releaseDate}}</h4>
-              <h3>{{moreInfo.artist}}</h3>
-          </div>
+      <div class="album-container" *ngFor="let album of albums; let i = index">
+        <div class="album" (click)='getInfo(i)' [ngStyle]="{'background': 'url(' + album + ')', 'background-size': 'cover', 'height': imgSize + 'px', 'width': imgSize + 'px'}">
+        </div>
+      </div>
+    </div>
+
+<!-- modal -->
+    <div (click)="closeModal()" *ngIf="albumInfo && !searchable" class="row info-modal" [ngStyle]="{'height': (albumFrame * 1.5) + 'px'}">
+      <div class="close-modal">X</div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xm-6">
+            <img src="{{moreInfo.albumArt}}">
+        </div>
+
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-xm-6">
+          <h1>{{moreInfo.name}}</h1>
+          <a target="_blank" href="{{moreInfo.link}}">-view in spotify</a>
+          <h4>Release: {{moreInfo.releaseDate}}</h4>
+          <h3>{{moreInfo.artist}}</h3>
+        </div>
           <hr />
-          <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-xm-6">
-              <h3>Tracks</h3>
-              <div class="tracks" *ngFor="let track of moreInfo.tracks">
-                  <p>{{track.track}}<a target="_blank" href="{{track.preview}}">-preview</a></p>
-              </div>
 
-          </div>
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-xm-6">
+            <h3>Tracks</h3>
+            <div class="tracks" *ngFor="let track of moreInfo.tracks">
+                <p>{{track.track}}<a target="_blank" href="{{track.preview}}">-preview</a></p>
+            </div>
 
-      </div>
+        </div>
+
+    </div>
   
-      <button class="buttons rightBtn" (click)="slideLeft()" *ngIf="farRight && !searchable">></button>
-      <button class="buttons leftBtn" (click)="slideRight()" *ngIf="farLeft"><</button>
-      </div>
+<!-- slider buttons -->
+    <button class="buttons rightBtn" (click)="slideLeft()" *ngIf="farRight && !searchable">></button>
+    <button class="buttons leftBtn" (click)="slideRight()" *ngIf="farLeft"><</button>
+
+  </div>
 </div>
