@@ -84,10 +84,12 @@ export class AppComponent {
                         };
                         
                         for(var i = 0; i < this.response.albums[0].tracks.items.length; i++){
+        
                             this.album.tracks.push({
                                 track: this.response.albums[0].tracks.items[i].name,
                                 duration: this.response.albums[0].tracks.items[i].duration_ms,
-                                preview: this.response.albums[0].tracks.items[i].preview_url
+                                preview: this.response.albums[0].tracks.items[i].preview_url,
+                                link: this.response.albums[0].link
                             })
                         }
                         this.moreInfo = this.album;

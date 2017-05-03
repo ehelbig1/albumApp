@@ -42,6 +42,7 @@
           </div>
           <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-xm-6">
               <h1>{{moreInfo.name}}</h1>
+              <a target="_blank" href="{{moreInfo.link}}">-view in spotify</a>
               <h4>Release: {{moreInfo.releaseDate}}</h4>
               <h3>{{moreInfo.artist}}</h3>
           </div>
@@ -49,8 +50,7 @@
           <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-xm-6">
               <h3>Tracks</h3>
               <div class="tracks" *ngFor="let track of moreInfo.tracks">
-                  <p>{{track.track}}</p>
-                  <a target="_blank" href="{{track.preview}}">preview</a>
+                  <p>{{track.track}}<a target="_blank" href="{{track.preview}}">-preview</a></p>
               </div>
 
           </div>
